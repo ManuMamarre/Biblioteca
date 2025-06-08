@@ -1,4 +1,4 @@
-#include "patrones/singleton/GestorAutenticacion.h"
+#include "patrones/singleton/GestorSesiones.h"
 #include "patrones/factory/GestorDePrestamos.h"
 #include "patrones/factory/CreadorPrestamoFisico.h"
 #include "patrones/factory/CreadorPrestamoDigital.h"
@@ -12,6 +12,7 @@
 #include "patrones/strategy/Multasimple.h"
 #include "patrones/strategy/MultaProgresiva.h"
 #include "patrones/Flyweight/FabricaLibros.h"
+#include "modelos/usuario.h"
 
 #include <iostream>
 
@@ -23,14 +24,36 @@ void mostrarResultados(const std::vector<std::string> &resultados)
     }
 }
 
+std::string nombreRol(RolUsuario rol) {
+    switch (rol) {
+        case RolUsuario::Usuario: return "Usuario";
+        case RolUsuario::Bibliotecario: return "Bibliotecario";
+        case RolUsuario::Administrador: return "Administrador";
+        default: return "Desconocido";
+    }
+}
+
 int main()
 {
     std::cout << "\n========== INICIO DEL SISTEMA ==========\n";
 
+    // Ejemplo de creación de usuarios con roles
+    Usuario usuario1("1", "Manuela", "manuela@mail.com", RolUsuario::Usuario);
+    Usuario usuario2("2", "Camilo", "camilo@mail.com", RolUsuario::Bibliotecario);
+    Usuario usuario3("3", "Ana", "ana@mail.com", RolUsuario::Administrador);
+
+    std::cout << "Usuario: " << usuario1.getNombre() << " - Rol: " << nombreRol(usuario1.getRol()) << std::endl;
+    std::cout << "Usuario: " << usuario2.getNombre() << " - Rol: " << nombreRol(usuario2.getRol()) << std::endl;
+    std::cout << "Usuario: " << usuario3.getNombre() << " - Rol: " << nombreRol(usuario3.getRol()) << std::endl;
+
     // Singleton: Autenticacion
-    auto *autenticador = GestorAutenticacion::obtenerInstancia();
+    auto *autenticador = GestorSesiones::obtenerInstancia();
     autenticador->iniciarSesion("Manuela");
     autenticador->cerrarSesion("Manuela");
+
+    auto *gestorSesiones = GestorSesiones::obtenerInstancia();
+    gestorSesiones->iniciarSesion("Manuela");
+    gestorSesiones->cerrarSesion("Manuela");
 
     // Factory: Prestamos
     CreadorPrestamo *creadorFisico = new CreadorPrestamoFisico();

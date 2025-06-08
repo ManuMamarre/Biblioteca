@@ -20,15 +20,15 @@ int main()
     catalogo.agregarLibro("Cien anios de soledad - Garcia Marquez - Realismo magico");
     catalogo.agregarLibro("Don Quijote - Cervantes - Clasico");
 
-    std::cout << "\n🔍 Busqueda por titulo: 'El'\n";
+    std::cout << "\n Busqueda por titulo: 'El'\n";
     catalogo.setEstrategia(new BusquedaPorTitulo());
     mostrarResultados(catalogo.buscar("El"));
 
-    std::cout << "\n🔍 Busqueda por autor: 'Garcia'\n";
+    std::cout << "\n Busqueda por autor: 'Garcia'\n";
     catalogo.setEstrategia(new BusquedaPorAutor());
     mostrarResultados(catalogo.buscar("Garcia"));
 
-    std::cout << "\n🔍 Busqueda por categoria: 'Fantasia'\n";
+    std::cout << "\n Busqueda por categoria: 'Fantasia'\n";
     catalogo.setEstrategia(new BusquedaPorCategoria());
     mostrarResultados(catalogo.buscar("Fantasia"));
 

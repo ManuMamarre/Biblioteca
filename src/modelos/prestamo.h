@@ -2,7 +2,7 @@
 #define PRESTAMO_H
 
 #include <string>
-#include "Usuario.h"
+#include "usuario.h"
 #include "Ejemplar.h"
 
 class Prestamo {

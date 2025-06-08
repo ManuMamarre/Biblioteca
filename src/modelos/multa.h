@@ -2,7 +2,7 @@
 #define MULTA_H
 
 #include <string>
-#include "Usuario.h"
+#include "usuario.h"
 
 class Multa {
 private:

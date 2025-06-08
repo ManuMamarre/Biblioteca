@@ -73,4 +73,5 @@ Para compilar y ejecutar los tests, usa comandos similares a:
 g++ -std=c++14 -I./src tests/test_singleton.cpp src/patrones/singleton/GestorSesiones.cpp -o test_singleton.exe
 ./test_singleton.exe
 ```
+
 >>>>>>> 6c1c1e8 (Primer commit)
