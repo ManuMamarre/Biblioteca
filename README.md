@@ -47,7 +47,7 @@ Desde la raíz del proyecto, ejecuta (ajusta si tu compilador o rutas son difere
 
 ```sh
 g++ -std=c++14 -I./src src/main.cpp \
-src/patrones/singleton/GestorAutenticacion.cpp \
+src/patrones/singleton/GestorSesion.cpp \
 src/patrones/factory/CreadorPrestamoFisico.cpp \
 src/patrones/factory/CreadorPrestamoDigital.cpp \
 src/patrones/factory/PrestamoFisico.cpp \
@@ -70,9 +70,7 @@ src/patrones/Flyweight/FabricaLibros.cpp \
 
 Para compilar y ejecutar los tests, usa comandos similares a:
 
-```sh
-g++ -std=c++14 -I./src tests/test_singleton.cpp src/patrones/singleton/GestorAutenticacion.cpp -o test_singleton.exe
+g++ -std=c++14 -I./src tests/test_singleton.cpp src/patrones/singleton/GestorSesiones.cpp -o test_singleton.exe
 ./test_singleton.exe
 ```
-
 >>>>>>> 6c1c1e8 (Primer commit)
